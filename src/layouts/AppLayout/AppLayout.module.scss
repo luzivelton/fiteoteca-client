@@ -1,0 +1,26 @@
+@use '@/styles/tokens/spacing.scss' as *;
+@use '@/styles/tokens/breakpoints.scss' as *;
+@use '@/styles/tokens/colors.scss' as *;
+
+.container {
+  min-height: 100dvh;
+  margin: auto;
+  position: relative;
+  padding: $spacing-sm;
+  background: $color-page;
+
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-xxxl 0;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: auto;
+}
+
+.header {
+  margin-bottom: $spacing-xxxl;
+}

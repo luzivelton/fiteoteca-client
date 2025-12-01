@@ -1,0 +1,17 @@
+@use '@/styles/tokens/colors.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+@use '@/styles/tokens/border.scss' as *;
+
+@mixin input-style {
+  background: $color-neutral-100;
+  padding: 0 $spacing-md;
+  border: none;
+  border-radius: $radius-md;
+  color: $color-neutral-600;
+  height: 3.375rem;
+
+  &:hover,
+  &:focus {
+    border-color: $color-accent-400;
+  }
+}

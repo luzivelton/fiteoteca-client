@@ -1,0 +1,6 @@
+@use '@/styles/tokens/spacing.scss' as *;
+
+.books {
+  display: flex;
+  flex-direction: column;
+}

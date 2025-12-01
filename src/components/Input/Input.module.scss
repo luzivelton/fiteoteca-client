@@ -1,0 +1,21 @@
+@use './Input.mixins.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+
+.container {
+  position: relative;
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.input {
+  @include input-style;
+  flex: 1;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  right: $spacing-md;
+  transform: translateY(-50%);
+}

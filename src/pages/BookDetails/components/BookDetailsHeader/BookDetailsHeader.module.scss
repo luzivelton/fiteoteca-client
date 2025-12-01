@@ -1,0 +1,8 @@
+@use '@/styles/tokens/spacing.scss' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}

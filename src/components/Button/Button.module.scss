@@ -1,0 +1,97 @@
+@use '@/styles/tokens/colors.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+@use '@/styles/tokens/border.scss' as *;
+@use '@/styles/tokens/typography.scss' as *;
+@use '@/styles/tokens/breakpoints.scss' as *;
+@use '@/styles/tokens/animations.scss' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  font-weight: $font-weight-medium;
+
+  @include has-motion {
+    transition:
+      background 0.2s,
+      color 0.2s,
+      border 0.2s;
+  }
+}
+
+.primary,
+.primaryText {
+  color: $color-neutral-100;
+}
+
+.primary {
+  background: $color-primary-400;
+  border: $border-width-base solid $color-primary-400;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-neutral-100;
+  }
+}
+
+.secondary,
+.secondaryText {
+  color: $color-on-gray;
+}
+
+.secondary {
+  background: $color-gray-400;
+
+  &:hover {
+    border-color: $color-gray-500;
+  }
+}
+
+.text,
+.textContent {
+  color: $color-neutral-600;
+}
+
+.text {
+  background: transparent;
+  font-weight: $font-weight-semi-bold;
+  padding: 0;
+  font-size: $font-size-xl;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-primary-500;
+    text-decoration: underline;
+    background: transparent;
+  }
+}
+
+.small {
+  padding: $spacing-xs $spacing-md;
+  line-height: $line-height-sm;
+}
+
+.danger {
+  color: $color-danger-400;
+}
+
+.danger.primary {
+  background: $color-danger-400;
+  color: $color-on-danger-400;
+  border: $border-width-base solid $color-danger-400;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-danger-500;
+  }
+}
+
+.loading {
+  margin-right: $spacing-xs;
+}

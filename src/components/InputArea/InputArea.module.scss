@@ -1,0 +1,11 @@
+@use '@/components/Input/Input.mixins.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+
+.inputArea {
+  @include input-style;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  padding-top: $spacing-sm;
+  height: auto;
+}
