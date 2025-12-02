@@ -20,11 +20,13 @@ export function UploadImageExternal({
   const handleUpload: UploadImageProps['onUpload'] = async (file: File) => {
     setIsLoading(true)
     try {
-      const { url } = await getSignedUploadUrl(file)
-      const finalUrl = await uploadToS3(url, file)
+      const response = await getSignedUploadUrl(file)
+      const { signedUrl, publicUrl } = response
 
-      if (finalUrl) {
-        onChange?.(finalUrl)
+      await uploadToS3(signedUrl, file)
+
+      if (publicUrl) {
+        onChange?.(publicUrl)
       }
     } catch (err) {
       console.error('Image upload failed', err)

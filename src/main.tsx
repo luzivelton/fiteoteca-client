@@ -6,7 +6,7 @@ import { Router } from '@/router'
 import { BrowserRouter } from 'react-router-dom'
 
 async function enableMocking() {
-  if (process.env.NODE_ENV !== 'development') {
+  if (!import.meta.env.VITE_ENABLE_MOCK) {
     return
   }
   const { worker } = await import('./__mocks__/browser')

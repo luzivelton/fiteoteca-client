@@ -2,12 +2,15 @@ import { api } from '@/api/api'
 import axios from 'axios'
 
 export async function getSignedUploadUrl(file: File) {
-  const res = await api.post('/upload/sign', {
-    filename: file.name,
-    filetype: file.type,
-  })
+  const res = await api.post<{ publicUrl: string; signedUrl: string }>(
+    '/upload/sign',
+    {
+      filename: file.name,
+      filetype: file.type,
+    }
+  )
 
-  return res.data as { url: string }
+  return res.data as { publicUrl: string; signedUrl: string }
 }
 
 export async function uploadToS3(url: string, file: File) {
@@ -21,7 +24,7 @@ export async function uploadToS3(url: string, file: File) {
     throw new Error('Failed to upload to S3')
   }
 
-  const finalUrl = url.split('?')?.[0]
+  const finalUrl = res.data.datapublicUrl
 
   return finalUrl
 }

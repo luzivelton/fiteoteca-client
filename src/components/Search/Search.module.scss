@@ -1,16 +1,11 @@
 @use '@/styles/tokens/colors.scss' as *;
-@use '@/styles/tokens/breakpoints.scss' as *;
 @use '@/styles/tokens/spacing.scss' as *;
 
 .input {
-  display: none;
   flex: 1;
   padding-right: calc(40px + #{$spacing-sm});
   background: $color-neutral-100;
-
-  @media (min-width: $breakpoint-sm) {
-    display: block;
-  }
+  display: block;
 }
 
 .content {

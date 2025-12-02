@@ -14,6 +14,7 @@ const hasTimezone = (date: string) => TIMEZONE_REGEX.test(date)
 const hasTimeSeparator = (date: string) => date.includes(TIME_SEPARATOR)
 
 function toUTCDateString(date: string): string {
+  if (!date) return date
   const containsTimezone = hasTimezone(date)
   const containsTimeSeparator = hasTimeSeparator(date)
 
