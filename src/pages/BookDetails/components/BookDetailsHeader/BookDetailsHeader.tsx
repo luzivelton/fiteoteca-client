@@ -1,9 +1,9 @@
 import { Button } from '@/components/Button/Button'
 import { MdArrowBackIos } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import styles from './BookDetailsHeader.module.scss'
 import { BookDetailsActions } from '@/pages/BookDetails/components/BookDetailsActions/BookDetailsActions'
 import { AppLayout } from '@/layouts/AppLayout/AppLayout'
+import styles from './BookDetailsHeader.module.scss'
 
 export function BookDetailsHeader() {
   return (

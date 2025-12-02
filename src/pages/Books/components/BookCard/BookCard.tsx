@@ -3,8 +3,8 @@ import styles from './BookCard.module.scss'
 import type { IBook } from '@/interfaces/IBook'
 import clsx from 'clsx'
 import { memo } from 'react'
-import { BookDetailsImage } from '@/pages/Blog/components/BookDetailsImage/BookDetailsImage'
 import { Link } from 'react-router-dom'
+import { BookCardImage } from '@/pages/Books/components/BookCardImage/BookCardImage'
 
 type FeedCardProps = React.JSX.IntrinsicElements['section'] & IBook
 
@@ -24,7 +24,7 @@ const BookCardInner = ({
       data-testid='book-card'
     >
       <div className={styles.imageContainer}>
-        <BookDetailsImage
+        <BookCardImage
           classNames={{ image: styles.image }}
           src={imageUrl}
           alt={title}

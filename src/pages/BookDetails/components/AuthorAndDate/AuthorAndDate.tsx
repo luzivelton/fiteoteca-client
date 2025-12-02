@@ -14,12 +14,10 @@ export function AuthorAndDate({
 }: AuthorAndDateProps) {
   return (
     <div className={styles.container}>
-      <div className={styles.textContent}>
-        <Typography variant='caption'>Por: {authorName}</Typography>
-        <Typography variant='caption' secondary={true}>
-          <Date date={publishedDate} />
-        </Typography>
-      </div>
+      <Typography variant='body'>Por: {authorName || '-'}</Typography>
+      <Typography variant='body'>
+        Publicado em <Date date={publishedDate} />
+      </Typography>
     </div>
   )
 }

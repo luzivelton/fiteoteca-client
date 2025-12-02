@@ -1,0 +1,24 @@
+@use '@/styles/tokens/colors.scss' as *;
+@use '@/styles/tokens/border.scss' as *;
+@use '@/styles/tokens/breakpoints.scss' as *;
+@use '@/styles/tokens/animations.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 300 / 460;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}

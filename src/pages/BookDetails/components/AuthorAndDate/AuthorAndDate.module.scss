@@ -1,7 +1,9 @@
 @use '@/styles/tokens/spacing.scss' as *;
+@use '@/styles/tokens/typography.scss' as *;
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  gap: $spacing-xxxs;
+  font-weight: $font-weight-medium;
 }
