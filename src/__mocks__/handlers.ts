@@ -15,4 +15,12 @@ export const handlers = [
   http.delete(`${API_URL}/books/:id`, () => {
     return HttpResponse.json({ message: 'Book deleted successfully' })
   }),
+
+  http.post(`${API_URL}/upload/sign`, () => {
+    return HttpResponse.json({ url: 'https://example.com/signed-url' })
+  }),
+
+  http.put('https://example.com/signed-url', () => {
+    return HttpResponse.json()
+  }),
 ]

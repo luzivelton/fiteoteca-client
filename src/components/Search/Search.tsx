@@ -61,7 +61,7 @@ export function Search({
               variant='transparent'
               className={styles.mainButton}
             >
-              <MdSearch />
+              <MdSearch size={33} />
             </ButtonIcon>
           ) : (
             <ButtonIcon
@@ -72,7 +72,7 @@ export function Search({
               variant='transparent'
               secondary={true}
             >
-              <MdClose />
+              <MdClose size={33} />
             </ButtonIcon>
           )}
           <Input

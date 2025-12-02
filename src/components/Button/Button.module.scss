@@ -12,10 +12,15 @@
   font-family: inherit;
   border: none;
   cursor: pointer;
-  padding: $spacing-xs $spacing-md;
+  padding: $spacing-md-2 $spacing-md-2;
   border-radius: $radius-full;
   white-space: nowrap;
   font-weight: $font-weight-medium;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
   @include has-motion {
     transition:
@@ -75,6 +80,11 @@
 .small {
   padding: $spacing-xs $spacing-md;
   line-height: $line-height-sm;
+}
+
+.small.text {
+  padding: 0;
+  font-size: $font-size-sm;
 }
 
 .danger {

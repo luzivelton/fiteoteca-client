@@ -39,9 +39,9 @@ const BookCardInner = ({
         <Typography
           className={styles.description}
           variant='body'
-          numberOfLines={9}
+          numberOfLines={8}
         >
-          <p>{description}</p>
+          <span>{description}</span>
         </Typography>
       </div>
     </article>

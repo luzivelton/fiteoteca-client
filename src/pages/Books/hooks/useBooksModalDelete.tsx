@@ -2,6 +2,7 @@ import { Button } from '@/components/Button/Button'
 import { Modal } from '@/components/Modal/Modal'
 import { Typography } from '@/components/Typography/Typography'
 import { useDeleteBook } from '@/hooks/useDataHooks'
+import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 
 interface BookDeleteButtonProps {
@@ -9,7 +10,8 @@ interface BookDeleteButtonProps {
 }
 
 export function useBooksModalDelete({ id }: BookDeleteButtonProps) {
-  const { mutate, isPending } = useDeleteBook(id)
+  const queryClient = useQueryClient()
+  const { mutate, isPending } = useDeleteBook(id, queryClient)
   const [openModal, setOpenModal] = useState(false)
 
   function handleDelete() {

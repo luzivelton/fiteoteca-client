@@ -1,7 +1,12 @@
 @use '@/styles/tokens/spacing.scss' as *;
+@use '@/styles/tokens/breakpoints.scss' as *;
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $spacing-sm;
+
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-base;
+  }
 }

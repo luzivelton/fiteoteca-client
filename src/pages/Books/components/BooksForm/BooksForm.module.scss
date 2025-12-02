@@ -1,2 +1,32 @@
-.button {
+@use '@/styles/tokens/breakpoints.scss' as *;
+@use '@/styles/tokens/spacing.scss' as *;
+
+.upperRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  @media (min-width: $breakpoint-md) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-base;
+  }
+}
+
+.imageField {
+  display: flex;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-base;
+  }
 }

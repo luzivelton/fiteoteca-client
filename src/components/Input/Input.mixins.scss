@@ -12,6 +12,10 @@
 
   &:hover,
   &:focus {
-    border-color: $color-accent-400;
+    border-color: $color-primary-400;
+  }
+
+  &::placeholder {
+    color: $input-placeholder;
   }
 }

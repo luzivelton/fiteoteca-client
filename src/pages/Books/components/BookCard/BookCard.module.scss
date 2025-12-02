@@ -23,7 +23,7 @@
   }
 
   &:focus-within:focus-visible {
-    border: $border-width-base solid $color-accent-400;
+    border: $border-width-base solid $color-primary-400;
   }
 
   @media (min-width: $breakpoint-md) {

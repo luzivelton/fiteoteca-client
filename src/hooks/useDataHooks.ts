@@ -1,5 +1,5 @@
 import { api } from '@/api/api'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { QueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import type { IBookDetails } from '@/interfaces/IBookDetails'
 import type { IBook } from '@/interfaces/IBook'
 
@@ -18,25 +18,40 @@ export function useBookDetailsData(id: string | undefined) {
   })
 }
 
-export function useCreateBook() {
+export function useCreateBook(queryClient: QueryClient) {
   return useMutation({
     mutationFn: (book: IBookDetails) =>
       api.post(`books`, book).then((res) => res.data),
-    mutationKey: ['createBook'],
+    mutationKey: ['books'],
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['books'] })
+    },
   })
 }
 
-export function useUpdateBook(id: string | undefined) {
+export function useUpdateBook(
+  id: string | undefined,
+  queryClient: QueryClient
+) {
   return useMutation({
     mutationFn: (book: IBookDetails) =>
       api.put<IBookDetails>(`books/${id}`, book).then((res) => res.data),
-    mutationKey: ['updateBook', id],
+    mutationKey: ['books'],
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['books'] })
+    },
   })
 }
 
-export function useDeleteBook(id: string | undefined) {
+export function useDeleteBook(
+  id: string | undefined,
+  queryClient: QueryClient
+) {
   return useMutation({
-    mutationKey: ['deleteBook', id],
+    mutationKey: ['books'],
     mutationFn: () => api.delete<void>(`books/${id}`).then((res) => res.data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['books'] })
+    },
   })
 }

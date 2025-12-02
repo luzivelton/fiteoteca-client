@@ -24,15 +24,17 @@
 .content {
   display: flex;
   flex-direction: column;
-  border-radius: $radius-lg;
   background: $color-page;
   z-index: 1002;
   position: relative;
   width: 100%;
   padding: $spacing-lg $spacing-md;
   gap: $spacing-sm;
+  max-height: 100vh;
+  overflow-y: auto;
 
-  @media (min-width: 600px) {
+  @media (min-width: $breakpoint-md) {
+    border-radius: $radius-lg;
     padding: $spacing-xl;
     gap: $spacing-base;
   }

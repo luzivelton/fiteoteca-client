@@ -1,9 +1,10 @@
 import { Button } from '@/components/Button/Button'
 import { Modal } from '@/components/Modal/Modal'
+import { useToast } from '@/hooks/useToast'
 import type { IBookDetailsPartial } from '@/interfaces/IBookDetails'
 import { BooksForm } from '@/pages/Books/components/BooksForm/BooksForm'
 import type { BooksFormMode } from '@/pages/Books/components/BooksForm/BooksForm.types'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 interface IUseBooksForm {
   mode: BooksFormMode
@@ -12,15 +13,29 @@ interface IUseBooksForm {
 
 export function useBooksModalForm({ mode, selectedBook }: IUseBooksForm) {
   const modeText = MODE_TEXT[mode]
-
+  const { showToast } = useToast()
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const onClose = useCallback(() => {
+    setIsModalOpen(false)
+  }, [])
+
+  const renderFooter = useCallback(
+    ({ isDirty }: { isDirty: boolean }) => (
+      <Modal.Footer>
+        <Modal.Button variant='secondary' onClick={onClose} type='reset'>
+          Cancelar
+        </Modal.Button>
+        <Modal.Button type='submit' disabled={!isDirty}>
+          Salvar
+        </Modal.Button>
+      </Modal.Footer>
+    ),
+    [onClose]
+  )
 
   const onOpenModal = () => {
     setIsModalOpen(true)
-  }
-
-  const onClose = () => {
-    setIsModalOpen(false)
   }
 
   const modalButtonDisabled = mode === 'edit' && !selectedBook
@@ -31,19 +46,18 @@ export function useBooksModalForm({ mode, selectedBook }: IUseBooksForm) {
     </Button>
   )
 
+  const onSuccess = useCallback(() => {
+    onClose()
+    showToast({ message: 'Livro salvo com sucesso!' })
+  }, [onClose, showToast])
+
   const formModalContextHolder = (
     <Modal title={modeText.title} isOpen={isModalOpen} onClose={onClose}>
       <BooksForm
         mode={mode}
         selectedBook={selectedBook}
-        footer={
-          <Modal.Footer>
-            <Modal.Button variant='secondary' onClick={onClose} type='reset'>
-              Cancelar
-            </Modal.Button>
-            <Modal.Button type='submit'>Salvar</Modal.Button>
-          </Modal.Footer>
-        }
+        renderFooter={renderFooter}
+        onSuccess={onSuccess}
       />
     </Modal>
   )

@@ -21,7 +21,7 @@
 
   &:hover .input,
   &:focus-within .input {
-    border-color: $color-accent-400;
+    border-color: $color-primary-400;
   }
 }
 
@@ -38,4 +38,6 @@
   top: 50%;
   transform: translateY(-50%);
   right: $spacing-xxs;
+  color: $input-placeholder;
+  z-index: 2;
 }
